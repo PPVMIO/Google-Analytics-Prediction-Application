@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'prediction/style/style.css' %}" />
+        <SCRIPT>
+            function readOnlyCheckBox() {
+               return false;
+            }
+        </SCRIPT>
+    </head>
+    
+    
+
+<body>
+    <p>This is the classification page</p>
+
+
+    <form action="results" method="POST">
+        {% csrf_token %}
+        <h3>View ID</h3>
+        <input type="text" name= "viewID">
+        <h3>Date Range</h3>
+        <input type="date" name="startDate">
+        <input type="date" name="endDate">
+        
+        <h3>Dimensions</h3>
+        <input type="checkbox" name="dim" value="ga:nthMinute" onClick="return readOnlyCheckBox()" CHECKED>nthMinute<br>
+        <input type="checkbox" name="dim" value="ga:date" onClick="return readOnlyCheckBox()" CHECKED>Date<br>
+        <input type="checkbox" name="dim_cat" value="ga:region">Region<br>
+        <input type="checkbox" name="dim_cat" value="ga:source" checked>Source<br>
+        <input type="checkbox" name="dim_cat" value="ga:keyword" checked>Keyword<br>
+        <input type="checkbox" name="dim_cat" value="ga:landingscreenname" checked>Landing Screen Name<br>
+        <input type="checkbox" name="dim" value="ga:hour" checked>Hour<br>
+        <input type="checkbox" name="dim_cat" value="ga:usertype" checked>User Type<br>
+        <input type="checkbox" name="dim_cat" value="ga:devicecategory" checked>Device Category<br>
+        <input type="checkbox" name="dim_cat" value="ga:browser" checked>Browser<br>
+        
+        
+        
+        <h3>Metrics</h3>
+        <input type="checkbox" name="metrics" value="ga:bounces" onClick="return readOnlyCheckBox()" CHECKED>Bounce<br>
+        <input type="checkbox" name="metrics" value="ga:sessions" onClick=
+"return readOnlyCheckBox()" CHECKED>Sessions<br>
+        <!--<input type="checkbox" name="metrics" value="ga:sessions" checked>Sessions<br>
+        <input type="checkbox" name="dimensions" value="ga:sessionduration" checked>Session Duration<br>-->
+        <br>
+        <input type="submit" value="Build Model">
+    </form>
+
+
+    
+   
+    
+    
+</body>
+    
+
+</html>

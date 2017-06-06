@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'prediction/style/style.css' %}" />
+
+    </head>
+    
+    
+
+<body>
+    <p>This is the results page</p>
+
+    <div id="chart"></div>
+    
+    
+    <form id="feature-form" action="results" method="GET">
+
+        <input class="feature-input" list="feature1">
+            <datalist class="feature-list" id="feature1" ></datalist><br>
+        <input class="feature-input" list="feature2">
+            <datalist class="feature-list" id="feature2"></datalist><br>
+        <input class="feature-input" list="feature3">
+            <datalist class="feature-list" id="feature3"></datalist><br>
+        <input class="feature-input" list="feature4">
+            <datalist class="feature-list" id="feature4"></datalist><br>
+        <input class="feature-input" list="feature5">
+            <datalist class="feature-list" id="feature5"></datalist><br>
+        <input class="feature-input" list="feature6">
+            <datalist class="feature-list" id="feature6"></datalist><br>
+        <input class="feature-input" list="feature7">
+            <datalist class="feature-list" id="feature7"></datalist><br>
+        <input type="submit" value="Submit Prediction">
+        
+    </form>
+    
+    
+    
+    <h3>Test Values</h3>
+    <table>
+        <tr>
+            <td>dimension</td>
+            <td>value</td>
+        </tr>
+
+        {% for key, values in dimensions.items %}
+        <tr>
+            <td>{{key}}</td>
+            {% for v in values %}
+            <td>{{v}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    
+    {% for v in predict_val %}
+        {% if v == 0 %}
+            <h3>Predicted user will <p style="color:red">STAY</p></h3>
+        {% endif %}
+        {% if v == 1 %}
+            <h3>Predicted user will <p style="color:red">BOUNCE</p></h3>
+        {% endif %}
+    {% endfor %}
+    
+    
+    
+    
+    <script type="text/javascript" src="{% static 'prediction/js/d3/d3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'prediction/js/random-forest.js' %}"></script>
+
+
+    
+    
+</body>
+    
+
+</html>
