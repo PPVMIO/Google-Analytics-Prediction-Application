@@ -38,7 +38,7 @@ From here you will start the project by typing
     
 You should see something like this 
 
-![Alt clone_download](/tutorial_images/clone_download.jpg)
+![Alt clone_download](/tutorial_images/start_local_host.jpg)
 
 Open up the web browser of your choosing and type in the url in the folder.  This should take you to the homepage of the web application
     
