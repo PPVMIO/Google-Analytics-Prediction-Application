@@ -1,7 +1,0 @@
-nthMinute
-userType
-deviceCategory
-browser
-landingScreenName
-hour
-keyword

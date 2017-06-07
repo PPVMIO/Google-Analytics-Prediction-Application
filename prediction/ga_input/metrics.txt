@@ -1,4 +1,0 @@
-sessions
-bounces
-searchGoal11ConversionRate
-pageviewsPerSession
